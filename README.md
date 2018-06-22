@@ -1,9 +1,9 @@
 # PassphraseGen
-PassphraseGen is a script for generating passphrase lists to be used for password cracking with hashcat rules like the ones found here: https://github.com/initstring/passphrase-wordlist.
+PassphraseGen is a script for generating custom passphrase lists to be used for password cracking with hashcat rules like the ones found here: https://github.com/initstring/passphrase-wordlist. 
 
 Included in this repo are a few wordlists located in the "lists" folder that can be used to generate passphrases including the top English words, an EFF passphrase wordlist, and the Bitcoin BIP-039 seed wordlist.
 
-There is an option that allows for selecting a number of random words from a list for use with the tool. The more words you have in your list the greater amount of time it will take the tool to generate the passphrases. See the "Sample Benchmarks" section below for some example run times. 
+There is also an option that allows for selecting a number of random words from a list for use with the tool. The more words you have in your list the greater amount of time it will take the tool to generate the passphrases. See the "Sample Benchmarks" section below for some example run times. 
 
 ## Examples
 

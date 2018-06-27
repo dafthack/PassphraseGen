@@ -49,18 +49,20 @@ This example will take a list of words and generate a passphrase list using four
 Invoke-PassphraseGen -FourWords -Wordlist .\lists\top-100-english-words-4-chars-or-more.txt -OutputFile passphrase-list.txt
 ```
 
-This example will take a list of words and select 25 random lines from it. Then using those 25 words it will generate a passphrase list using four words in each passphrase.
+This example will take a list of words and select 25 random lines from it. Then using those 25 words it will generate a passphrase list using four words in each passphrase. A total of 20 threads will be utilized.
 
 ```PowerShell
-Invoke-PassphraseGen -FourWords -TotalLines 25 -Wordlist .\lists\bitcoin-bip-0039-seed-words.txt -OutputFile passphrase-list.txt
+Invoke-PassphraseGen -FourWords -Threads 20 -TotalLines 25 -Wordlist .\lists\bitcoin-bip-0039-seed-words.txt -OutputFile passphrase-list.txt
 ```
 
 ### Sample Benchmarks
 Here are some sample benchmarks of generating passphrase lists with PassphraseGen on a fairly decent laptop... Your mileage may vary. 
 
 ```
-15 words, four-per-passphrase (Total of 32760 passphrases)  : 1 min 30 secs  --- 826 KB
-25 words, four-per-passphrase (Total of 303600 passphrases) : 1 hour 10 mins --- 8.07 MB
+15 words, four-per-passphrase (Total of 32,760 passphrases)  : 40 seconds --- ~800 KB
+25 words, four-per-passphrase (Total of 303,600 passphrases) : 2 minutes 15 seconds --- ~8.07 MB
+35 words, four-per-passphrase (Total of 1,256,640 passphrases) : 6 minutes 30 seconds --- ~27.3 MB
+50 words, four-per-passphrase (Total of 5,527,200 passphrases) : 45 mins --- ~116 MB
 ```
 
 ### Options
@@ -71,4 +73,6 @@ FourWords    -    Use this switch to generate passphrases with 4 words.
 Wordlist     -    The input list of words that are to be used within passphrases.
 OutputFile   -    The file to output all the passphrases to.
 TotalLines   -    Use this option to specify a number of lines to randomly select from the wordlist for use within passphrases.
+Threads      -    Use this option to specify a number of threads. Uses 10 by default.
+SleepTimer   -    Time to sleep in between checking if a thread has finished or not.
 ```
